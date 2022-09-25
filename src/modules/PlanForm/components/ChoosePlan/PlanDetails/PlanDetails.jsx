@@ -4,7 +4,7 @@ import { Container, BodyCollapse } from '../../../styles'
 import PlanType from './PlanType'
 import Title from '../../Common/Title'
 
-const PlanDetails = () => {
+const PlanDetails = ({formValues, setFormValues}) => {
     const [expanded, setExpanded] = React.useState(true)
 
     const handleClick = React.useCallback(() => {
@@ -18,7 +18,9 @@ const PlanDetails = () => {
                 expanded={expanded}
                 handleClick={handleClick} />
             <BodyCollapse in={expanded}>
-                <PlanType />
+                <PlanType 
+                    formValues={formValues}
+                    setFormValues={setFormValues}/>
             </BodyCollapse>
         </Container>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import { FormPreviewDetails, PreviewContainer, PreviewTitle, PreviewTitleContainer } from '../../styles'
 import FormPreviewText from '../Common/FormPreviewText'
 
-const FormPreview = () => {
+const FormPreview = ({formValues}) => {
     return (
         <PreviewContainer>
             <PreviewTitleContainer>
@@ -11,12 +11,12 @@ const FormPreview = () => {
                 </PreviewTitle>
             </PreviewTitleContainer>
             <FormPreviewDetails>
-                <FormPreviewText label={'Personal email address'} />
-                <FormPreviewText label={'Mobile Number'} />
-                <FormPreviewText label={'Address line 01'} />
-                <FormPreviewText label={'Address line 02'} />
-                <FormPreviewText label={'Pincode'} />
-                <FormPreviewText label={'State'} />
+                <FormPreviewText label={'Personal email address'} value={formValues.email}/>
+                <FormPreviewText label={'Mobile Number'} value={formValues.mobileNumber}/>
+                <FormPreviewText label={'Address line 01'} value={formValues.address1}/>
+                <FormPreviewText label={'Address line 02'} value={formValues.address2}/>
+                <FormPreviewText label={'Pincode'} value={formValues.pinCode}/>
+                <FormPreviewText label={'State'} value={formValues.state}/>
             </FormPreviewDetails>
         </PreviewContainer>
     )

@@ -4,8 +4,8 @@ import Title from '../Common/Title'
 import StyledSlider from './StyledSlider'
 import "./slider.css";
 
-const AmountSlider = () => {
-    const marks = ["₹1L", "₹2L", "₹3L", "₹5L"]
+const AmountSlider = ({formValues, setFormValues}) => {
+    const marks = ["₹1L", "₹2L", "₹3L", "₹4L", "₹5L"]
     const [value, setValue] = useState(0)
     const [expanded, setExpanded] = useState(true)
 
@@ -13,9 +13,11 @@ const AmountSlider = () => {
         setExpanded(!expanded)
     }, [expanded])
 
-    const handleChange = (v) => {
-        setValue(v);
-    };
+    const handleChange = React.useCallback((v) => {
+        const newValue = (v / 100) * 5
+        setValue(v)
+        setFormValues({...formValues, amount: newValue})
+    }, [formValues, setFormValues])
 
     return (
         <Container>

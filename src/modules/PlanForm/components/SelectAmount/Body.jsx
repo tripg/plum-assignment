@@ -4,10 +4,12 @@ import { FormWrapper } from '../../styles'
 import StyledCheckbox from '../Common/StyledCheckbox'
 import AmountSlider from './AmountSlider'
 
-const Body = () => {
+const Body = ({formValues, setFormValues}) => {
   return (
     <FormWrapper>
-        <AmountSlider/>
+        <AmountSlider
+          formValues={formValues}
+          setFormValues={setFormValues} />
         <StyledCheckbox label={amountConsent}/>
     </FormWrapper>
   )

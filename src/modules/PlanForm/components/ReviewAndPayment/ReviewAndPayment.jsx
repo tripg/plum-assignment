@@ -3,12 +3,13 @@ import { BodyContainer, MainContainer } from '../../styles'
 import Header from '../Header/Header'
 import Body from './Body'
 
-const ReviewAndPayment = ({ label }) => {
+const ReviewAndPayment = ({ label, formValues }) => {
   return (
     <BodyContainer>
       <MainContainer>
         <Header label={label} />
-        <Body />
+        <Body 
+          formValues={formValues}/>
       </MainContainer>
     </BodyContainer>
   )

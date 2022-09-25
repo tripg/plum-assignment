@@ -4,14 +4,15 @@ import FormPreview from '../FormPreview/FormPreview'
 import Header from '../Header/Header'
 import Body from './Body'
 
-const Declaration = ({ label }) => {
+const Declaration = ({ label, formValues }) => {
   return (
     <BodyContainer>
       <MainContainer>
         <Header label={label} />
         <Body />
       </MainContainer>
-      <FormPreview />
+      <FormPreview
+        formValues={formValues} />
     </BodyContainer>
   )
 }

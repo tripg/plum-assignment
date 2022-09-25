@@ -1,17 +1,21 @@
 import React from 'react'
-import {stepsData} from '../constants/data'
+import { useState } from 'react'
+import { stepsData } from '../constants/data'
 import Footer from './components/Footer/Footer'
 import Steps from './components/steps/Steps'
 import { FormContainer } from './styles'
 
 const Form = () => {
-  const [current, setCurrent] = React.useState(1)
+  const [current, setCurrent] = useState(1)
+  const initialValues = { email: "", mobileNumber: "", address1: "", address2: "", pinCode: "", state: "", amount: "", planType: "" }
+  const [formValues, setFormValues] = useState(initialValues)
+  const [formErrors, setFormErrors] = useState({})
 
-    const handleSelectStep = React.useCallback((newStep) => {
-        if (newStep !== current) {
-            setCurrent(newStep)
-        }
-    }, [current])
+  const handleSelectStep = React.useCallback((newStep) => {
+    if (newStep !== current) {
+      setCurrent(newStep)
+    }
+  }, [current])
 
   return (
     <FormContainer>
@@ -21,10 +25,20 @@ const Form = () => {
         handleSelectStep={handleSelectStep} />
       {stepsData.map((item, index) => (
         item.step === current && (
-          <item.component key={`step-component-${index}`} label={item.label} description={item.description}/>
+          <item.component
+            key={`step-component-${index}`}
+            label={item.label}
+            description={item.description}
+            formValues={formValues}
+            setFormValues={setFormValues} />
         ) || <React.Fragment key={`blank-component-${index}`} />
       ))}
-      <Footer />
+      <Footer
+        formValues={formValues}
+        setFormErrors={setFormErrors}
+        current={current}
+        changeCurrent={handleSelectStep}
+        stepsData={stepsData} />
     </FormContainer>
   )
 }

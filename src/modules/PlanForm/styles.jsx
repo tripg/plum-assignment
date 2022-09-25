@@ -1,18 +1,18 @@
 import styled, { keyframes } from 'styled-components'
 import Collapse from '@material-ui/core/Collapse'
-import { Select } from '@material-ui/core'
+import { Grid, Select } from '@material-ui/core'
 
 export const BodyContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px;
     gap: 32px;
     position: absolute;
     height: 727px;
     left: 160px;
     right: 160px;
     top: 140px;
+    padding-bottom: 120px;
 `
 
 export const HeaderContainer = styled.div`
@@ -439,8 +439,8 @@ const DropdownFormControl = styled.form`
     }
 `
 
-export const StyledDropdown = ({value,handleChange,children,...props}) => (
-    <DropdownFormControl 
+export const StyledDropdown = ({ value, handleChange, children, ...props }) => (
+    <DropdownFormControl
         variant='outlined'>
         <Select
             value={value}
@@ -496,7 +496,7 @@ export const StyledInputLabel = styled.div`
     margin-bottom: 8px;
 `
 
-export const Input =  styled.input`
+export const Input = styled.input`
     box-sizing: border-box;
     left: 0%;
     right: 0%;
@@ -509,4 +509,24 @@ export const Input =  styled.input`
     min-height:60px;
     margin-bottom: 8px;
     padding: 14px;
+`
+
+export const StyledGrid = styled(Grid)`
+    background: '#FFFFFF'
+`
+
+export const ErrorText = styled.div`
+    height: 18px;
+    left: 0px;
+    top: calc(50% - 18px/2 - 27px);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    margin-bottom: 8px;
+    color: red;
 `
