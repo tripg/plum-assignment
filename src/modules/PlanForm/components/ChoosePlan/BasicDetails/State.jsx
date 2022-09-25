@@ -1,8 +1,8 @@
 import { Grid } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect } from 'react'
 import StyledInput from '../../Common/StyledInput'
 
-const State = ({formValues, setFormValues}) => {
+const State = ({formValues, setFormValues, formErrors, setFormErrors}) => {
     const [value, setValue] = React.useState(null)
 
     const handleValueChange = React.useCallback((event) => {
@@ -11,12 +11,19 @@ const State = ({formValues, setFormValues}) => {
         setFormValues({...formValues, state: newValue})
     }, [formValues, setFormValues])
 
+    useEffect(() => {
+        if(value){
+            setFormErrors({...formErrors, state: ""})
+        }
+    },[formErrors, setFormErrors, value])
+
     return (
         <Grid style={{ background: '#FFFFFF' }} item xs={6}>
             <StyledInput 
                 label={'State'}
                 value={value}
-                handleChange={handleValueChange} />
+                handleChange={handleValueChange}
+                error={formErrors.state} />
         </Grid>
     )
 }

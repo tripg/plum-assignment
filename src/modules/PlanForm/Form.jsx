@@ -30,12 +30,15 @@ const Form = () => {
             label={item.label}
             description={item.description}
             formValues={formValues}
-            setFormValues={setFormValues} />
+            formErrors={formErrors}
+            setFormValues={setFormValues}
+            setFormErrors={setFormErrors} />
         ) || <React.Fragment key={`blank-component-${index}`} />
       ))}
       <Footer
         formValues={formValues}
         setFormErrors={setFormErrors}
+        formErrors={formErrors}
         current={current}
         changeCurrent={handleSelectStep}
         stepsData={stepsData} />

@@ -184,7 +184,7 @@ export const FormWrapper = styled.div`
     padding: 0px;
     gap: 24px;
     width: 736px;
-    height: 557px;
+    height: 757px;
     flex: none;
     order: 1;
     align-self: stretch;
@@ -212,6 +212,10 @@ export const BodyCollapse = styled(Collapse)`
     height: 44px;
     margin: 12px;
     background: #FFFFFF;
+
+    .MuiCollapse-wrapperInner {
+        background: #FFFFFF;
+    }
 `
 
 export const TitleContainer = styled.div`

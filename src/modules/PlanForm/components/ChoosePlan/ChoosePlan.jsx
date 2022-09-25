@@ -4,7 +4,7 @@ import FormPreview from '../FormPreview/FormPreview'
 import Header from '../Header/Header'
 import Body from './Body'
 
-const ChoosePlan = ({ formValues, setFormValues, label, description }) => {
+const ChoosePlan = ({ formErrors, formValues, setFormValues, label, description, setFormErrors }) => {
   return (
     <BodyContainer>
       <MainContainer>
@@ -12,7 +12,9 @@ const ChoosePlan = ({ formValues, setFormValues, label, description }) => {
           label={label}
           description={description} />
         <Body
+          formErrors={formErrors}
           formValues={formValues}
+          setFormErrors={setFormErrors}
           setFormValues={setFormValues} />
       </MainContainer>
       <FormPreview

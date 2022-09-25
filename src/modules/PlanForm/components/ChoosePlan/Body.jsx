@@ -3,13 +3,17 @@ import { FormWrapper } from '../../styles'
 import BasicDetails from './BasicDetails/BasicDetails'
 import PlanDetails from './PlanDetails/PlanDetails'
 
-const Body = ({ formValues, setFormValues }) => {
+const Body = ({ formErrors,formValues, setFormValues, setFormErrors }) => {
   return (
     <FormWrapper>
       <PlanDetails
+        formErrors={formErrors}
         formValues={formValues}
-        setFormValues={setFormValues} />
+        setFormValues={setFormValues}
+        setFormErrors={setFormErrors} />
       <BasicDetails
+        setFormErrors={setFormErrors}
+        formErrors={formErrors}
         formValues={formValues}
         setFormValues={setFormValues} />
     </FormWrapper>

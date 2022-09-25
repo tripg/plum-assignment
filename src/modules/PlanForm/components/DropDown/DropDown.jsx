@@ -2,8 +2,9 @@ import * as React from "react";
 import DropDownItem from "./DropDownItem";
 import Select from "react-select";
 import ValueContainer from "./ValueContainer";
+import { ErrorText } from "../../styles";
 
-const DropDown = ({ defaultValue, options, onChange }) => {
+const DropDown = ({ defaultValue, options, onChange, error }) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -51,15 +52,20 @@ const DropDown = ({ defaultValue, options, onChange }) => {
   }
 
   return (
-    <Select
-      placeholder={defaultValue}
-      styles={customStyles}
-      onChange={onChange}
-      formatOptionLabel={DropDownItem}
-      components={{
-        ValueContainer: ValueContainer
-      }}
-      options={options}/>
+    <>
+      <Select
+        placeholder={defaultValue}
+        styles={customStyles}
+        onChange={onChange}
+        formatOptionLabel={DropDownItem}
+        components={{
+          ValueContainer: ValueContainer
+        }}
+        options={options} />
+      {error &&
+        <ErrorText>{error}</ErrorText>
+      }
+    </>
   );
 };
 

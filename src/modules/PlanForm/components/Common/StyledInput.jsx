@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input, StyledInputContainer, StyledInputLabel } from '../../styles'
+import { ErrorText, Input, StyledInputContainer, StyledInputLabel } from '../../styles'
 
-const StyledInput = ({label, value, handleChange}) => {
+const StyledInput = ({label, value, handleChange, error}) => {
     return (
         <StyledInputContainer>
             <StyledInputLabel>
@@ -12,6 +12,9 @@ const StyledInput = ({label, value, handleChange}) => {
                 value={value}
                 placeholder='Enter'
                 onChange={handleChange}/>
+            {error && 
+                <ErrorText>{error}</ErrorText>
+            }
         </StyledInputContainer>
     )
 }

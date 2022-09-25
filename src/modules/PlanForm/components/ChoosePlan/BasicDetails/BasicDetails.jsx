@@ -11,7 +11,7 @@ import Pincode from './Pincode'
 import State from './State'
 
 
-const BasicDetails = ({formValues, setFormValues}) => {
+const BasicDetails = ({formValues, setFormValues, formErrors, setFormErrors}) => {
     const [expanded, setExpanded] = React.useState(true)
 
     const handleClick = React.useCallback(() => {
@@ -28,21 +28,32 @@ const BasicDetails = ({formValues, setFormValues}) => {
                 <Grid style={{ background: '#FFFFFF' }} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Email 
                         formValues={formValues}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues}/>
                     <MobileNumber
                         formValues={formValues}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues} />
                     <Address1 
                         formValues={formValues}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues}/>
                     <Address2 
                         formValues={formValues}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues}/>
                     <Pincode 
                         formValues={formValues}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues}/>
                     <State 
                         formValues={formValues}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         setFormValues={setFormValues}/>
                 </Grid>
             </BodyCollapse>
